@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TPP Utility Bot</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_login_settings">Login Settings</string>
+    <string name="action_settings">App Settings</string>
+    <string name="ouath_info">The OAuth is a second layer of security that the Twitch API uses for loging into the IRC chat. To get an OAuth click the button bellow.</string>
+    <string name="login_key">LoginInformationKey</string>
+    <string name="login_username_key">LoginUsernameKey</string>
+    <string name="login_ouath_key">LoginOuathKey</string>
+    <string name="settings_key">SettingsKey</string>
+    <string name="controller_settings">SettingsControllerKey</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="reload_flag">ReloadFlagKey</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+</resources>
