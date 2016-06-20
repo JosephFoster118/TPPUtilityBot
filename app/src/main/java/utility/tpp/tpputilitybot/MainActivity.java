@@ -147,7 +147,7 @@ public class MainActivity extends ActionBarActivity {
         Log.i("Startup", "Orientation is " + orientation);
 
         SharedPreferences sharedPref = getSharedPreferences(getString(R.string.settings_key),MODE_PRIVATE);
-        int button_layout = sharedPref.getInt(getString(R.string.controller_settings),BettingMode);
+        int button_layout = sharedPref.getInt(getString(R.string.controller_settings),GBAMode);
         if((orientation == 1) || (orientation == 3))
         {
             if(button_layout == BettingMode)

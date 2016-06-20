@@ -57,11 +57,12 @@
         </RelativeLayout>
             <Button
                 android:layout_width="88dp"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:textSize = "10dp"
                 android:layout_weight="0.35"
                 android:text="Reconnect"
                 android:textAllCaps="false"
+                android:background="#30ffffff"
                 android:layout_alignParentRight="true"
                 android:id="@+id/reconnect_button" />
         </RelativeLayout>
