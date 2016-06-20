@@ -244,16 +244,16 @@ public class MainActivity extends ActionBarActivity {
                 ImageButton down_button = (ImageButton) findViewById(R.id.down_button);
                 ImageButton left_button = (ImageButton) findViewById(R.id.left_button);
                 ImageButton right_button = (ImageButton) findViewById(R.id.right_button);
-                //Button select_button = (Button) findViewById(R.id.select_button);
-                //Button start_button = (Button) findViewById(R.id.start_button);
+                Button select_button = (Button) findViewById(R.id.select_button);
+                Button start_button = (Button) findViewById(R.id.start_button);
                 a_button.setOnTouchListener(new ControllerButtonTouchListener(a_button, "a\r\n", network));
                 b_button.setOnTouchListener(new ControllerButtonTouchListener(b_button, "b\r\n", network));
                 up_button.setOnTouchListener(new ControllerButtonTouchListener(up_button, "up\r\n", network));
                 down_button.setOnTouchListener(new ControllerButtonTouchListener(down_button, "down\r\n", network));
                 left_button.setOnTouchListener(new ControllerButtonTouchListener(left_button, "left\r\n", network));
                 right_button.setOnTouchListener(new ControllerButtonTouchListener(right_button, "right\r\n", network));
-                //select_button.setOnClickListener(new MessageOutButton("select\r\n", network));
-                //start_button.setOnClickListener(new MessageOutButton("start\r\n", network));
+                select_button.setOnClickListener(new MessageOutButton("select\r\n", network));
+                start_button.setOnClickListener(new MessageOutButton("start\r\n", network));
                 
 
 
@@ -312,6 +312,9 @@ public class MainActivity extends ActionBarActivity {
         boolean reload = sharedPref.getBoolean(getString(R.string.reload_flag), false);
         if(reload)
         {
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putBoolean(getString(R.string.reload_flag),false);
+            editor.commit();
             Intent intent = getIntent();
             overridePendingTransition(0, 0);
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
@@ -319,6 +322,7 @@ public class MainActivity extends ActionBarActivity {
             overridePendingTransition(0, 0);
             startActivity(intent);
         }
+
     }
 
 

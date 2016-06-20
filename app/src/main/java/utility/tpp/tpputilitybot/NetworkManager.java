@@ -151,7 +151,7 @@ public class NetworkManager extends Thread {
                         {
                             //Log.i("MESSAGE ", line);
                             // Print the raw line received by the bot.
-                            if (/*parsed_message.getType().equals("PRIVMSG") || */ parsed_message.getType().equals("WHISPER"))
+                            if (parsed_message.getType().equals("PRIVMSG") ||  parsed_message.getType().equals("WHISPER"))
                             {
                                 String test_message = " ";
                                 if (parsed_message.getSender().equals("tppbankbot"))
