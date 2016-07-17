@@ -133,9 +133,6 @@ public class NetworkManager extends Thread {
                             writer.flush();
                         } else if(line.contains("Error logging in"))
                         {
-                            DialogFragment newFragment = new FailedLogInDialog();
-                            newFragment.show(NetworkManagerHolder.main_activity.getFragmentManager(), "missiles");
-                            Log.i("LOG IN ERROR", "Error logging in");
                             //updater.addText("\nERROR: Invalid Log In!\n");
                         }
                         else if(line.contains("Invalid NICK"))
@@ -378,50 +375,3 @@ public class NetworkManager extends Thread {
 
 }
 
-class FailedLogInDialog extends DialogFragment
-{
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // Use the Builder class for convenient dialog construction
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("Invalid Login")
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener()
-                {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // FIRE ZE MISSILES!
-                    }
-                });
-
-        /* Create the AlertDialog object and return it */
-        return builder.create();
-    }
-
-    void createDialog()
-    {
-
-    }
-}
-
-class FailedLogInDialogInvalidName extends DialogFragment
-{
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // Use the Builder class for convenient dialog construction
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("Invalid Username")
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener()
-                {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // FIRE ZE MISSILES!
-                    }
-                });
-
-        /* Create the AlertDialog object and return it */
-        return builder.create();
-    }
-
-    void createDialog()
-    {
-
-    }
-}

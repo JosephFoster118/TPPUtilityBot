@@ -60,6 +60,7 @@ public class MainActivity extends ActionBarActivity {
 
     static final int BettingMode = 0;
     static final int GBAMode = 1;
+    static final int AdvanceMode = 3;
     public static Context context;
 
     public static final Drawable getDrawable(Context context, int id) {
@@ -109,12 +110,9 @@ public class MainActivity extends ActionBarActivity {
                     return (event.getAction() == MotionEvent.ACTION_MOVE);
                 }
             });
-            //webSettings.setUseWideViewPort(true);
-            //webSettings.setLoadWithOverviewMode(true);
 
-
-            //browser.loadUrl("http://www.twitch.tv/gronkh/embed");
-            browser.loadUrl("http://player.twitch.tv/?volume=1.0&channel=twitchplayspokemon");
+            browser.loadUrl("https://player.twitch.tv/?autoplay=true&channel=twitchplayspokemon");
+            //browser.loadUrl("http://player.twitch.tv/?volume=1.0&channel=twitchplayspokemon");
         }
         else
         {
@@ -150,7 +148,7 @@ public class MainActivity extends ActionBarActivity {
         int button_layout = sharedPref.getInt(getString(R.string.controller_settings),GBAMode);
         if((orientation == 1) || (orientation == 3))
         {
-            if(button_layout == BettingMode)
+            if((button_layout == BettingMode) || (button_layout == AdvanceMode))
             {
                 setContentView(R.layout.activity_main_betting);
 
@@ -188,13 +186,13 @@ public class MainActivity extends ActionBarActivity {
                 bet_blue_button.setOnClickListener(bet_blue_listener);
                 reconnect_listener = new ReconnectButtonListener(network);
                 reconnect_button.setOnClickListener(reconnect_listener);
-                balance_button_listener = new MessageOutButton("!balance\r\n", network);
+                balance_button_listener = new MessageOutButton("/w tpp balance\r\n", network);
                 balance_button.setOnClickListener(balance_button_listener);
 
-                a_button_listener = new MessageOutButton("!move a\r\n", network);
-                b_button_listener = new MessageOutButton("!move b\r\n", network);
-                c_button_listener = new MessageOutButton("!move c\r\n", network);
-                d_button_listener = new MessageOutButton("!move d\r\n", network);
+                a_button_listener = new MessageOutButton("!a\r\n", network);
+                b_button_listener = new MessageOutButton("!b\r\n", network);
+                c_button_listener = new MessageOutButton("!c\r\n", network);
+                d_button_listener = new MessageOutButton("!d\r\n", network);
 
                 a_button.setOnClickListener(a_button_listener);
                 b_button.setOnClickListener(b_button_listener);
@@ -261,14 +259,27 @@ public class MainActivity extends ActionBarActivity {
         }
         else
         {
-            vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            network = NetworkManagerHolder.initializeNetwork(vibrator,getSharedPreferences(getString(R.string.login_key),MODE_PRIVATE));
-            setContentView(R.layout.activity_full_screen);
-            RelativeLayout webview_holder = (RelativeLayout) findViewById(R.id.webviewholder_full);
-            webview_holder.addView(browser);
-            ActionBar actionBar = getSupportActionBar();
-            actionBar.hide();
-            this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            if((button_layout == AdvanceMode)) {
+                vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                network = NetworkManagerHolder.initializeNetwork(vibrator, getSharedPreferences(getString(R.string.login_key), MODE_PRIVATE));
+                setContentView(R.layout.activity_full_screen_advance);
+                RelativeLayout webview_holder = (RelativeLayout) findViewById(R.id.webviewholder_full);
+                webview_holder.addView(browser);
+                ActionBar actionBar = getSupportActionBar();
+                actionBar.hide();
+                this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            }
+            else
+            {
+                vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                network = NetworkManagerHolder.initializeNetwork(vibrator, getSharedPreferences(getString(R.string.login_key), MODE_PRIVATE));
+                setContentView(R.layout.activity_full_screen);
+                RelativeLayout webview_holder = (RelativeLayout) findViewById(R.id.webviewholder_full);
+                webview_holder.addView(browser);
+                ActionBar actionBar = getSupportActionBar();
+                actionBar.hide();
+                this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            }
 
         }
     }

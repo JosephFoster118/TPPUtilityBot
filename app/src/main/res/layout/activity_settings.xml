@@ -48,8 +48,14 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Betting Mode Advance"
+                    android:id="@+id/BetModeAdv"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="GBA Mode"
                     android:id="@+id/GBAMode"/>
+
             </RadioGroup>
         </LinearLayout>
     </ScrollView>

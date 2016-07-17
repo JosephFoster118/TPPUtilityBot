@@ -13,9 +13,11 @@ public class Settings extends AppCompatActivity
 {
     RadioButton  betting_mode_radio;
     RadioButton  gba_mode_radio;
+    RadioButton  advance_mode_radio;
     Button accept_button;
     static final int BettingMode = 0;
     static final int GBAMode = 1;
+    static final int AdvanceMode = 3;;
 
     public void saveSettings()
     {
@@ -28,6 +30,10 @@ public class Settings extends AppCompatActivity
         else if(betting_mode_radio.isChecked())
         {
             editor.putInt(getString(R.string.controller_settings),BettingMode);
+        }
+        else if(advance_mode_radio.isChecked())
+        {
+            editor.putInt(getString(R.string.controller_settings),AdvanceMode);
         }
         editor.putBoolean(getString(R.string.reload_flag),true);
 
@@ -42,6 +48,7 @@ public class Settings extends AppCompatActivity
 
         betting_mode_radio = (RadioButton) findViewById(R.id.BetMode);
         gba_mode_radio = (RadioButton) findViewById(R.id.GBAMode);
+        advance_mode_radio = (RadioButton) findViewById(R.id.BetModeAdv);
         accept_button = (Button) findViewById(R.id.SettingsAcceptButton);
         SharedPreferences sharedPref = getSharedPreferences(getString(R.string.settings_key),MODE_PRIVATE);
         int button_layout = sharedPref.getInt(getString(R.string.controller_settings),GBAMode);
@@ -53,6 +60,10 @@ public class Settings extends AppCompatActivity
         else if(button_layout == BettingMode)
         {
             betting_mode_radio.setChecked(true);
+        }
+        else if(button_layout == AdvanceMode)
+        {
+            advance_mode_radio.setChecked(true);
         }
 
         accept_button.setOnClickListener
