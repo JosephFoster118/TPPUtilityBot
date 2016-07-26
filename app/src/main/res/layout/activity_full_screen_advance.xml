@@ -43,21 +43,23 @@
                     android:layout_height="0dp"
                     android:layout_weight="0.33">
                     <Button
-                        android:text="MOVE_A"
+                        android:text="A"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.33"
-                        android:background="@drawable/advance_button"/>
+                        android:background="@drawable/advance_button"
+                        android:id="@+id/move_a_advance"/>
                     <Space
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.33"/>
                     <Button
-                        android:text="MOVE_B"
+                        android:text="B"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.33"
-                        android:background="@drawable/advance_button"/>
+                        android:background="@drawable/advance_button"
+                        android:id="@+id/move_b_advance"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -66,11 +68,12 @@
                     android:layout_height="0dp"
                     android:layout_weight="0.33">
                     <Button
-                        android:text="MOVE_C"
+                        android:text="C"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.33"
-                        android:background="@drawable/advance_button"/>
+                        android:background="@drawable/advance_button"
+                        android:id="@+id/move_c_advance"/>
                     <Button
                         android:text="Cancel Move"
                         android:layout_width="0dp"
@@ -78,11 +81,12 @@
                         android:layout_weight="0.33"
                         android:background="@drawable/advance_button"/>
                     <Button
-                        android:text="MOVE_D"
+                        android:text="D"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.33"
-                        android:background="@drawable/advance_button"/>
+                        android:background="@drawable/advance_button"
+                        android:id="@+id/move_d_advance"/>
 
                 </LinearLayout>
                 <Space

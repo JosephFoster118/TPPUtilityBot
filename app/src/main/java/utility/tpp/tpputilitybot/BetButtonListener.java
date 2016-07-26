@@ -24,10 +24,12 @@ public class BetButtonListener implements View.OnClickListener {
         if(red == true)
         {
             manager.sendMessage("PRIVMSG #twitchplayspokemon :!bet " + bet_amount.getText() + " red\r\n");
+            DatabaseManager.setRed();
         }
         else
         {
             manager.sendMessage("PRIVMSG #twitchplayspokemon :!bet " + bet_amount.getText() + " blue\r\n");
+            DatabaseManager.setBlue();
         }
 
     }

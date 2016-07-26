@@ -187,17 +187,17 @@ public class MainActivity extends ActionBarActivity {
                 reconnect_listener = new ReconnectButtonListener(network);
                 reconnect_button.setOnClickListener(reconnect_listener);
                 balance_button_listener = new MessageOutButton("/w tpp balance\r\n", network);
-                balance_button.setOnClickListener(balance_button_listener);
+                balance_button.setOnTouchListener(balance_button_listener);
 
                 a_button_listener = new MessageOutButton("!a\r\n", network);
                 b_button_listener = new MessageOutButton("!b\r\n", network);
                 c_button_listener = new MessageOutButton("!c\r\n", network);
                 d_button_listener = new MessageOutButton("!d\r\n", network);
 
-                a_button.setOnClickListener(a_button_listener);
-                b_button.setOnClickListener(b_button_listener);
-                c_button.setOnClickListener(c_button_listener);
-                d_button.setOnClickListener(d_button_listener);
+                a_button.setOnTouchListener(a_button_listener);
+                b_button.setOnTouchListener(b_button_listener);
+                c_button.setOnTouchListener(c_button_listener);
+                d_button.setOnTouchListener(d_button_listener);
 
                 ImageButton reload_stream_button = (ImageButton) findViewById(R.id.reload_stream_button);
                 reload_stream_button.setOnClickListener(new View.OnClickListener()
@@ -250,8 +250,8 @@ public class MainActivity extends ActionBarActivity {
                 down_button.setOnTouchListener(new ControllerButtonTouchListener(down_button, "down\r\n", network));
                 left_button.setOnTouchListener(new ControllerButtonTouchListener(left_button, "left\r\n", network));
                 right_button.setOnTouchListener(new ControllerButtonTouchListener(right_button, "right\r\n", network));
-                select_button.setOnClickListener(new MessageOutButton("select\r\n", network));
-                start_button.setOnClickListener(new MessageOutButton("start\r\n", network));
+                select_button.setOnTouchListener(new MessageOutButton("select\r\n", network));
+                start_button.setOnTouchListener(new MessageOutButton("start\r\n", network));
                 
 
 
@@ -268,6 +268,22 @@ public class MainActivity extends ActionBarActivity {
                 ActionBar actionBar = getSupportActionBar();
                 actionBar.hide();
                 this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+                a_button = (Button) findViewById(R.id.move_a_advance);
+                b_button = (Button) findViewById(R.id.move_b_advance);
+                c_button = (Button) findViewById(R.id.move_c_advance);
+                d_button = (Button) findViewById(R.id.move_d_advance);
+
+                a_button_listener = new AdvanceButtonListener(a_button,"!a\r\n", network);
+                b_button_listener = new AdvanceButtonListener(b_button,"!b\r\n", network);
+                c_button_listener = new AdvanceButtonListener(c_button,"!c\r\n", network);
+                d_button_listener = new AdvanceButtonListener(d_button,"!d\r\n", network);
+
+                a_button.setOnTouchListener(a_button_listener);
+                b_button.setOnTouchListener(b_button_listener);
+                c_button.setOnTouchListener(c_button_listener);
+                d_button.setOnTouchListener(d_button_listener);
+
             }
             else
             {
@@ -282,6 +298,7 @@ public class MainActivity extends ActionBarActivity {
             }
 
         }
+        DatabaseManager.initialize(this);
     }
 
     @Override
@@ -334,6 +351,26 @@ public class MainActivity extends ActionBarActivity {
             startActivity(intent);
         }
 
+    }
+
+    public Button getButtonA()
+    {
+        return a_button;
+    }
+
+    public Button getButtonB()
+    {
+        return b_button;
+    }
+
+    public Button getButtonC()
+    {
+        return c_button;
+    }
+
+    public Button getButtonD()
+    {
+        return d_button;
     }
 
 

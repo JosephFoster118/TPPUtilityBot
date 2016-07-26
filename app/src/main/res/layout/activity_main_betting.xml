@@ -147,14 +147,14 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
-                        android:text="Move A"
+                        android:text="A"
                         android:textAllCaps="false"
                         android:id="@+id/move_a" />
                     <Button
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
-                        android:text="Move B"
+                        android:text="B"
                         android:textAllCaps="false"
                         android:id="@+id/move_b" />
                 </LinearLayout>
@@ -167,14 +167,14 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
-                        android:text="Move C"
+                        android:text="C"
                         android:textAllCaps="false"
                         android:id="@+id/move_c" />
                     <Button
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
-                        android:text="Move D"
+                        android:text="D"
                         android:textAllCaps="false"
                         android:id="@+id/move_d" />
                 </LinearLayout>
